@@ -24,11 +24,17 @@ if (login()) {
     let option = prompt( "Elegí entre estas opciones. \n1 - Sumar seguidores. \n2 - Restar seguidores \n3 - Ver seguidores. \nPresiona X para finalizar.");
     
     while (option != "X" && option != "x") {
+        if (option == "") {
+            option = prompt( "Elegí entre estas opciones. \n1 - Sumar seguidores. \n2 - Restar seguidores \n3 - Ver seguidores. \nPresiona X para finalizar.");
+        }
+        
         switch (option) {
             case "1":
                 let addFollowers = parseInt(prompt("¿Cuántos seguidores te gustaría agregar?"));
                 seguidores += addFollowers;
                 alert("Ahora tienes " + seguidores + " seguidores");
+                option = "";
+                break;
             case "2":
                 let restFollowers = parseInt(prompt("¿Cuántos seguidores te gustaría restar?"));
             
@@ -37,13 +43,18 @@ if (login()) {
                 } else {
                     alert("No puedes restar esa cantidad de seguidores.")
                 }
+                option = "";
                 break;
             case "3":
                 alert ("En este momento tienes " + seguidores + " seguidores");
+                option = "";
+                break;
+            case "X":
+                alert ("Gracias, la sesion ha finalizado.")
                 break;
             default:
                 alert("Elegiste una opcion incorrecta.")
         }
     }
 }
-// alert adios
+
